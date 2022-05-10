@@ -17,11 +17,10 @@ const FilmForm = ({addFilm}) => {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const nameToSubmit = name.trim();
-        const urlToSubmit = url.trim();
-        if (!nameToSubmit || !urlToSubmit) {
+        if (!nameToSubmit || !url) {
             return;
         };
-        addFilm({name: nameToSubmit, url: urlToSubmit});
+        addFilm({name: nameToSubmit, url: url});
         setName('');
         setUrl('');
     };
@@ -38,8 +37,8 @@ const FilmForm = ({addFilm}) => {
                 />
                 <br/>
                 <input
-                    type="text"
-                    placeholder="Link to film's IMDB page."
+                    type="url"
+                    placeholder="www.example.co.uk/"
                     value={url}
                     onChange={handleUrlChange}
                 />
